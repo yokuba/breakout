@@ -36,13 +36,16 @@ function draw() {
   drawBall();
   drawPaddle();
 
-  if (x + dx < ballRadius || x + dx > canvas.width-ballRadius){
+  if(x + dx < ballRadius || x + dx > canvas.width-ballRadius){
     dx = -dx;
     ctx.fillStyle = getRandomColor();
   }
-  if (y + dy > canvas.height-ballRadius || y + dy < ballRadius){
+  if(y + dy < ballRadius){
     dy = -dy;
     ctx.fillStyle = getRandomColor();
+  } else if(y + dy > canvas.height-ballRadius) {
+    alert("GAME OVER");
+    document.location.reload();
 
   }
 
